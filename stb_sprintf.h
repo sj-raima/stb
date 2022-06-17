@@ -256,6 +256,10 @@ static stbsp__int32 stbsp__real_to_parts(stbsp__int64 *bits, stbsp__int32 *expo,
 #define STBSP__SPECIAL 0x7000
 #endif
 
+#ifndef STB_STR_NULL
+#define STB_STR_NULL "null"
+#endif
+
 static char stbsp__period = '.';
 static char stbsp__comma = ',';
 static struct
@@ -588,7 +592,7 @@ STBSP__PUBLICDEF int STB_SPRINTF_DECORATE(vsprintfcb)(STBSP_SPRINTFCB *callback,
          // get the string
          s = va_arg(va, char *);
          if (s == 0)
-            s = (char *)"null";
+            s = (char *)STB_STR_NULL;
          // get the length, limited to desired precision
          // always limit to ~0u chars since our counts are 32b
          l = stbsp__strlen_limited(s, (pr >= 0) ? pr : ~0u);
