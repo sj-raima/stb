@@ -546,7 +546,7 @@ STBSP__PUBLICDEF int STB_SPRINTF_DECORATE(vsprintfcb)(STBSP_SPRINTFCB *callback,
          break;
       // are we 64-bit on size_t or ptrdiff_t? (c99)
       case 'z':
-         fl |= (sizeof(ptrdiff_t) == 8) ? STBSP__INTMAX : 0;
+         fl |= (sizeof(size_t) == 8) ? STBSP__INTMAX : 0;
          ++f;
          break;
       case 't':
